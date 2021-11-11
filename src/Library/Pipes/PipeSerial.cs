@@ -8,6 +8,8 @@ namespace CompAndDel.Pipes
 {
     public class PipeSerial : IPipe
     {
+        private static int counter = 0;
+        private ImageSaver saver = new ImageSaver();
         protected IFilter filtro;
         protected IPipe nextPipe;
         
@@ -20,6 +22,8 @@ namespace CompAndDel.Pipes
         {
             this.nextPipe = nextPipe;
             this.filtro = filtro;
+
+            counter += 1;
         }
         /// <summary>
         /// Devuelve el proximo IPipe
